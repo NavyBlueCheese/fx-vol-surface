@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Generated demo artifacts (reproduce with: python examples/run_demo.py)
+examples/output/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

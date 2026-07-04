@@ -1,0 +1,9 @@
+# ILLUSTRATIVE EURUSD quotes -- realistically shaped, calm-regime round numbers.
+# NOT live market data. Vols and rates in PERCENT (7.60 = 7.60%). Spot outright.
+# Negative 25d RR = EUR puts over calls (typical EUR downside skew).
+pair,valuation_date,spot,tenor,atm_vol,rr_25,bf_25,rr_10,bf_10,r_dom,r_for
+EURUSD,2026-06-30,1.0850,1W,7.60,-0.15,0.18,-0.28,0.55,4.30,2.50
+EURUSD,2026-06-30,1.0850,1M,7.90,-0.20,0.20,-0.37,0.65,4.30,2.50
+EURUSD,2026-06-30,1.0850,3M,8.20,-0.28,0.23,-0.52,0.78,4.30,2.50
+EURUSD,2026-06-30,1.0850,6M,8.50,-0.35,0.25,-0.66,0.90,4.30,2.50
+EURUSD,2026-06-30,1.0850,1Y,8.90,-0.45,0.28,-0.85,1.05,4.30,2.50
