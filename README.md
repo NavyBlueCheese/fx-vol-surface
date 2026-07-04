@@ -1,4 +1,4 @@
-# fxvol — FX Implied Volatility Surface Engine
+# fxvol (FX Implied Volatility Surface Engine)
 
 Production-grade construction of FX implied-volatility surfaces from standard
 market quotes (ATM, risk reversals, butterflies), with **first-class FX
