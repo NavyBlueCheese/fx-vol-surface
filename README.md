@@ -48,7 +48,7 @@ assert report.ok, report.summary()
 Requires Python 3.10+ (developed and tested on 3.10; only 3.10-compatible
 syntax is used).
 
-## Units and quoting conventions (read this first — FX bugs hide here)
+## Units and quoting conventions (FX bugs)
 
 * Spot `S` = **domestic (quote) ccy per 1 unit of foreign (base) ccy**
   (EURUSD: EUR foreign, USD domestic).
