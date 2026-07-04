@@ -88,7 +88,7 @@ vanna/volga are load-bearing for Project 2 (vanna-volga).
   Reiswich–Wystup 2010; e.g. EURUSD unadjusted, USDJPY adjusted).
 * **Spot vs forward delta**: spot delta up to and including a configurable
   cutoff (default 1Y, Clark 2011 §3.3), forward delta beyond.
-* ⚠️ **Premium-adjusted call delta is not monotonic in strike.** The engine
+* **Premium-adjusted call delta is not monotonic in strike.** The engine
   locates the turning point (`vol√T·N(d2) = n(d2)`) and root-finds on the
   **higher-strike branch**, which is what the market quote refers to. Deltas
   above the attainable maximum raise instead of returning a wrong strike.
@@ -108,7 +108,7 @@ convexity. Per wing level Δ ∈ {25, 10}:
 
 1. `σ_ms = σ_ATM + BF`; strikes `K_c^ms, K_p^ms` at ±Δ using the single vol
    `σ_ms`; **market strangle price**
-   `v_ms = Call(K_c^ms, σ_ms) + Put(K_p^ms, σ_ms)` — this scalar is the
+   `v_ms = Call(K_c^ms, σ_ms) + Put(K_p^ms, σ_ms)` this scalar is the
    actual observable.
 2. Solve `(σ_Δc, σ_Δp)` s.t. (a) `σ_Δc − σ_Δp = RR` and (b) the smile
    strangle (strikes at ±Δ with the smile's own vols) reprices `v_ms`.
@@ -123,7 +123,7 @@ implied `(ATM, RR, BF)` round-trip to the inputs at ~1e-11 vol points.
 * Within tenor: **PCHIP** (shape-preserving monotone cubic) through the nodes
   in `(k = ln K/F, w = σ²T)`. Wings: **asymptotically flat in vol** with a C1
   exponential decay of the edge slope (a *hard* flat extrapolation is C0 and
-  its kink shows up as a negative-density spike at the 10Δ strikes — the
+  its kink shows up as a negative-density spike at the 10Δ strikes, the
   hard `"flat"` mode is available for comparison and the arbitrage checker
   flags its kink). Malz (1997) quadratic-in-delta smile included as
   seed/sanity model.
@@ -163,12 +163,12 @@ layer touch only the `SmileModel` interface (`vol(strike)`, `nodes`,
 
 * **Project 2 (vanna-volga)** consumes the exposed ATM/25Δ instruments: node
   strikes/vols from `TenorCalibration`, and analytic vega/vanna/volga from
-  `fxvol.pricing.greeks` — no new plumbing needed.
+  `fxvol.pricing.greeks` 
 * **Project 3 (SABR)** implements `SABRSmile(SmileModel)` (stub with plan in
   `smile/sabr.py`) fitted to the same calibrated nodes; nothing else changes.
 
 Data sources are pluggable behind the tiny `QuoteSource` protocol
-(`load() -> FxMarketData`) — a Bloomberg/Refinitiv adapter never touches the
+(`load() -> FxMarketData`) a Bloomberg/Refinitiv adapter didn't touch the
 math.
 
 ## Sample data
@@ -198,15 +198,15 @@ pipeline; `examples/demo.ipynb` is the guided walkthrough.
 ## References
 
 * Reiswich, D. & Wystup, U. (2010). *A Guide to FX Options Quoting
-  Conventions.* J. Derivatives 18(1). — delta/ATM conventions, market
+  Conventions.* J. Derivatives 18(1). delta/ATM conventions, market
   strangle.
 * Reiswich, D. & Wystup, U. (2012). *FX Volatility Smile Construction.*
   Wilmott. — calibration procedure.
 * Clark, I. J. (2011). *Foreign Exchange Option Pricing: A Practitioner's
   Guide.* Wiley. — conventions, smile/surface construction.
 * Gatheral, J. (2006). *The Volatility Surface.* Wiley; Gatheral, J. &
-  Jacquier, A. (2014). *Arbitrage-free SVI volatility surfaces.* — total
+  Jacquier, A. (2014). *Arbitrage-free SVI volatility surfaces.* total
   variance framing, g(k) condition.
 * Malz, A. (1997). *Estimating the probability distribution of the future
-  exchange rate from option prices.* — quadratic smile seed.
-* Hagan, P. et al. (2002). *Managing Smile Risk.* — SABR (Project 3).
+  exchange rate from option prices.* quadratic smile seed.
+* Hagan, P. et al. (2002). *Managing Smile Risk.* SABR (Project 3).
