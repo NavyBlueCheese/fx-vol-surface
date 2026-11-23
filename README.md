@@ -1,5 +1,7 @@
 # fxvol (FX Implied Volatility Surface Engine)
 
+> Developed locally since June 2026 and migrated to GitHub in July 2026 once the codebase was stable; earlier local history was not preserved.
+
 Production-grade construction of FX implied-volatility surfaces from standard
 market quotes (ATM, risk reversals, butterflies), with **first-class FX
 convention handling**, **Reiswich–Wystup market-strangle calibration**,
